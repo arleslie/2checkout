@@ -1,0 +1,21 @@
+{
+    "name": "arleslie/2checkout",
+    "description": "A 2checkout package for Laravel",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "~6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Leslie",
+            "email": "arleslie@arleslie.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "arleslie\\TwoCheckout\\": "src/"
+        }
+    },
+    "issues": "https://github.com/arleslie/2checkout/issues"
+}
