@@ -55,6 +55,11 @@ class Base
 		return $this->_getApi('Sales');
 	}
 
+	public function account()
+	{
+		return $this->_getApi('Account');
+	}
+
 	public static function isActive()
 	{
 		return self::$called;
