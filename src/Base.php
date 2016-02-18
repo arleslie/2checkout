@@ -12,6 +12,7 @@ class Base
 
 	private static $called = false;
 	private $guzzle;
+	private $sellerId;
 	private $apis = [];
 
 	public function __construct($user, $password, $privateKey, $sellerId, $sandbox = false)
@@ -37,6 +38,8 @@ class Base
 			]
 		]);
 
+		$this->sellerId = $sellerId;
+
 		self::$called = true;
 	}
 
@@ -44,7 +47,7 @@ class Base
 	{
 		if (empty($this->apis[$api])) {
 			$class = 'arleslie\\TwoCheckout\\APIs\\'. $api;
-			$this->apis[$api] = new $class($this->guzzle);
+			$this->apis[$api] = new $class($this->guzzle, $this->sellerId);
 		}
 
 		return $this->apis[$api];
@@ -58,6 +61,11 @@ class Base
 	public function account()
 	{
 		return $this->_getApi('Account');
+	}
+
+	public function payment()
+	{
+		return $this->_getApi('Payment');
 	}
 
 	public static function isActive()
