@@ -28,7 +28,7 @@ trait Helper
 
 	protected function json($url, $params = [])
 	{
-		return $this->request($url, ['json' => $params]);
+		return $this->parse($this->client->request('POST', $url, ['json' => $params]));
 	}
 
 	private function parse(Response $response)
